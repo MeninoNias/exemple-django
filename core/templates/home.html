@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>NOME</th>
+            <th>IDADE</th>
+            <th>AÇÃO</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for pessoa in object_list %}
+            <tr>
+                <td>{{ pessoa.nome }}</td>
+                <td>{{ pessoa.idade }}</td>
+                <td><a href="{% url 'update' pessoa.pk %}">{{ pessoa }}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+    <br>
+    <a href="{% url 'create' %}"> CREATE </a>
+{% endblock %}
+
